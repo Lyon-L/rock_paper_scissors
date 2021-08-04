@@ -20,6 +20,7 @@ let cpuScore = 0;
 //retrieve elements from DOM
 let p1Score = document.querySelector(".p1Score");
 let compScore = document.querySelector(".cpuScoreNum");
+let finalResult = document.querySelector(".final-result");
 
 
 
@@ -29,15 +30,25 @@ function game(func) {
     while (roundNumber < 5) {
         playRound(playerChoice, cpu);
         roundNumber++;
- 
+        
+        if (playerScore > cpuScore) {
+            finalResult.textContent = "You win!";
+        } else if (cpuScore > playerScore) {
+            finalResult.textContent = "You lose!";
+        } else if (cpuScore === 0 && playerScore === 0) {
+            finalResult.textContent = "";
+        } else {
+            finalResult.textContent = "It's a tie!";
+        }
     } 
-    console.log("Final Score --> Player: "+ playerScore + " --- CPU: " + cpuScore);
-    console.log("Game over");    
+    //console.log("Final Score --> Player: "+ playerScore + " --- CPU: " + cpuScore);
+    //console.log("Game over");
+    
 
 }
 
 function playRound(choice, cpuChoice){
-    playerChoice = prompt("Please select Rock, paper or scissors", "");   
+    //playerChoice = prompt("Please select Rock, paper or scissors", "");   
     let pChoiceCapital = playerChoice.toUpperCase();
     let compChoice = cpu.toUpperCase();
     
