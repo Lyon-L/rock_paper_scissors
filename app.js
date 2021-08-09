@@ -10,7 +10,7 @@ return items[Math.floor(Math.random()*items.length)];
 }
 
 //invoke the function with the CPU choice
-const cpu = computerPlay();
+let cpu = computerPlay();
 let msg = "";
 let playerChoice = "";
 let roundNumber = 0; //round starts at 0 plays ofc
@@ -32,62 +32,61 @@ function game(func) {
         roundNumber++;
         
         if (playerScore > cpuScore) {
-            finalResult.textContent = "You win!";
+            finalResult.textContent = "You win! :D";
+            finalResult.style.color = 'green';
         } else if (cpuScore > playerScore) {
-            finalResult.textContent = "You lose!";
+            finalResult.textContent = "You lose! :(";
+            finalResult.style.color = 'red';
         } else if (cpuScore === 0 && playerScore === 0) {
             finalResult.textContent = "";
         } else {
             finalResult.textContent = "It's a tie!";
+            finalResult.style.color = 'black';
         }
-    } 
-    //console.log("Final Score --> Player: "+ playerScore + " --- CPU: " + cpuScore);
-    //console.log("Game over");
+    }
     
-
 }
 
 function playRound(choice, cpuChoice){
-    //playerChoice = prompt("Please select Rock, paper or scissors", "");   
+    cpu = computerPlay();
+    playerChoice = prompt("Please select Rock, paper or scissors", "");   
     let pChoiceCapital = playerChoice.toUpperCase();
     let compChoice = cpu.toUpperCase();
-    
- 
 
     if(pChoiceCapital === "ROCK" && compChoice === "SCISSORS") {
-        msg = "You win! Rock beats Scissors";
+        alert("You win! Rock beats Scissors");
         playerScore++;
         p1Score.textContent = playerScore;
 
     } else if (pChoiceCapital === "PAPER" && compChoice === "SCISSORS") {
-        msg = "You lose. Scissors beats paper"; 
+        alert("You lose. Scissors beats paper"); 
         cpuScore++;
         compScore.textContent = cpuScore;
     } else if (pChoiceCapital === "SCISSORS" && compChoice === "SCISSORS") {
-        msg = "It's a tie. Scissors vs scissors";
+        alert("It's a tie. Scissors vs scissors");
     } else if (pChoiceCapital === "ROCK" && compChoice === "PAPER") {
-        msg = "You lose. Paper beats rock";
+        alert("You lose. Paper beats rock");
         cpuScore++;
         compScore.textContent = cpuScore;
     } else if (pChoiceCapital === "SCISSORS" && compChoice === "PAPER") {
-        msg = "You win. Scissors beat Paper";
+        alert("You win. Scissors beat Paper");
         playerScore++;
         p1Score.textContent = playerScore;
     } else if (pChoiceCapital === "PAPER" && compChoice === "PAPER") {
-        msg = "It's a tie. Paper vs paper";
+        alert("It's a tie. Paper vs paper");
     } else if (pChoiceCapital === "ROCK" && compChoice === "ROCK") {
-        msg = "IT's a tie. Rock vs rock";
+        alert("It's a tie. Rock vs rock");
     } else if (pChoiceCapital === "SCISSORS" && compChoice === "ROCK") {
-        msg = "You lose. Rock beats scissors";
+        alert("You lose. Rock beats scissors");
         cpuScore++;
         compScore.textContent = cpuScore;
     } else if (pChoiceCapital === "PAPER" && compChoice === "ROCK") {
-        msg = "You win. Paper beats rock";
+        alert("You win. Paper beats rock");
         playerScore++;
         p1Score.textContent = playerScore;
     }
+
     
-    return msg;
 }
 
 game();

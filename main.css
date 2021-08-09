@@ -1,16 +1,66 @@
 * {
     margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+}
+
+h1 {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 .icon-container {
-    border: 1px solid #000;
     padding: 25px;
-    width: 90%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 img:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+}
+
+.score {
+    padding: 10px;
+}
+
+.playerScoreBox {
+    border: 1px solid purple;
+    margin: 20px;
+    border-radius: 5px;
     box-shadow: 1px 1px black;
+}
+
+.cpuScoreBox{
+    border: 1px solid purple;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px black;
+}
+
+.p1Score {
+    text-align: center;
+    font-weight: bold;
+}
+
+.cpuScoreNum {
+    text-align: center;
+    font-weight: bold;
+}
+
+.final-result {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align:center;
 }
 
